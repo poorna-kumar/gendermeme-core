@@ -70,7 +70,7 @@ def get_article_info(article_text, ann=None, verbose=False):
     for _id, _dict in id_to_info.iteritems():
         new_dict = {
             'associated_verbs': list(_dict.get('associated_verbs', [])),
-            'num_times_mentions': _dict.get('count', 0),
+            'num_times_mentioned': _dict.get('count', 0),
             'gender': _dict.get('gender'),
             'gender_method': method_name_map[_dict.get('gender_method')],
             'name': _dict.get('name'),
