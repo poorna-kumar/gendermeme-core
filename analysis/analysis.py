@@ -15,10 +15,9 @@ from utils import get_people_mentioned_new
 
 def get_article_info(article_text, ann=None, verbose=False):
     """
-    Helper function that applies our techniques on a given piece of text,
-    first annotating it with CoreNLP then doing other stuff.
+    Given a piece of text, runs it through our entire pipeline.
 
-    Primarily used by the web app right now.
+    Can optionally pass it the CoreNLP annotation if it was precomputed.
     """
     if ann is None:
         ann = nlp_utils.annotate_corenlp(
