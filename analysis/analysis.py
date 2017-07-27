@@ -51,7 +51,7 @@ def get_article_info(article_text, ann=None, verbose=False):
         to_return = []
         for sent_idx, start_pos, end_pos in mention_list:
             to_return.append({
-                'sentNum': sent_idx,
+                'sent_num': sent_idx,
                 'start': start_pos,
                 'end': end_pos
             })
