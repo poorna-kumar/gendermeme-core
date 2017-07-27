@@ -44,3 +44,4 @@ This repo contains two folders:
 ‘associated_verbs’: list
 }
 ```
+The overall output is a JSON object with each individual's id as a key, and the object above as the value.
