@@ -1,6 +1,11 @@
 import sys
+import os
 from pprint import pprint
-sys.path.append('../')
+
+def get_file_path():
+    return os.path.dirname(os.path.realpath(__file__))
+
+sys.path.append(os.path.join(get_file_path(), '../'))
 from nlp import utils as nlp_utils
 from utils import get_people_mentioned, get_quotes, get_associated_verbs, \
     identify_sources, get_associated_adjectives, get_people_mentioned_new
