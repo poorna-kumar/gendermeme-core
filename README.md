@@ -55,7 +55,7 @@ This repo contains two folders:
  >>> get_article_info(text)
  ```
  
- It will return a JSON which, on prettifying, looks like:
+ It will return a JSON object created from a Python dictionary which, on prettifying, looks like:
  ```
  {0: {'associated_verbs': [u'go'],
      'gender': 'FEMALE',
