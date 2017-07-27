@@ -44,4 +44,13 @@ This repo contains two folders:
 ‘associated_verbs’: list
 }
 ```
-The overall output is a JSON object with each individual's id as a key, and the object above as the value.
+ The overall output is a JSON object with each individual's id as a key, and the object above as the value.
+ 
+ ### Example Usage
+ 
+ Run the following from the `analysis` directory:
+ ```
+ >>> from analysis import get_article_info
+ >>> text = 'Ann Smith and her husband Jim went to the movies. "It was okay," he said.'
+ >>> get_article_info(text)
+ ```
