@@ -26,11 +26,11 @@ This repo contains two folders:
 
 ## How to run this code:
 
-- Start a CoreNLP server:
+- Start a CoreNLP server (more details [here](https://stanfordnlp.github.io/CoreNLP/corenlp-server.html)):
   - cd into the directory that you unzipped CoreNLP to, and run:
 
   `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 150000`
-- import the function get_article_info from analysis.py and call it as get_article_info(text_to_analyze) with the text to be analyzed passed as a string.
+- import the function `get_article_info` from `analysis.py` and call it as `get_article_info(text_to_analyze)` with the text to be analyzed passed as a string.
 - The output is a JSON string, structured as follows. For each individual, we assign a unique id, and produce a JSON object with the following keys: 
 ```
 {
