@@ -32,19 +32,19 @@ This repo contains two folders:
     `java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 150000`
 - import the function `get_article_info` from `analysis.py` and call it as `get_article_info(text_to_analyze)` with the text to be analyzed passed as a string.
 - The output is a JSON string, structured as follows. For each individual, we assign a unique id, and produce a JSON object with the following keys: 
-```
-{
-‘name’: full name of person
-‘mentions’: a list of positions 
-‘num_times_mentioned’: int
-‘gender’: string
-‘gender_method’: string, one of ‘HONORIFIC’, ‘COREF’ or ‘NAME_ONLY’
-‘quotes’: list of CoreNLP tokens (words) that this person said
-‘is_speaker’: whether the person speaks in the article, and a list of reasons for why we think so
-‘associated_verbs’: list
-}
-```
- The overall output is a JSON object with each individual's id as a key, and the object above as the value.
+  ```
+  {
+  ‘name’: full name of person
+  ‘mentions’: a list of positions 
+  ‘num_times_mentioned’: int
+  ‘gender’: string
+  ‘gender_method’: string, one of ‘HONORIFIC’, ‘COREF’ or ‘NAME_ONLY’
+  ‘quotes’: list of CoreNLP tokens (words) that this person said
+  ‘is_speaker’: whether the person speaks in the article, and a list of reasons for why we think so
+  ‘associated_verbs’: list
+  }
+  ```
+  The overall output is a JSON object with each individual's id as a key, and the object above as the value.
  
  ### Example Usage
  
