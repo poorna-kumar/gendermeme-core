@@ -7,7 +7,7 @@ This repo contains the code required to run GenderMeme.
 
 - CoreNLP version 3.8.0. 
 Get it [here](https://stanfordnlp.github.io/CoreNLP/); download and extract.
-- Python libraries (to be `pip install`’ed)
+- Python libraries (install with `pip install`)
   - `pycorenlp`
   - `numpy`
 
