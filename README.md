@@ -21,7 +21,7 @@ This repo contains two folders:
     - Figure out which mentions refer to the same person, and hence get a list of individuals mentioned in our article (entity resolution)
     - Guess the gender of each individual
     - Attribute quotes and associated verbs to people to figure out who says something in the article.
-  - `gender.py` and `gender_babynames.py`: Two files of first names and their most likely gender (we use first names to infer gender in some cases). `gender.py` has been taken from this useful public repo, and `gender_babynames.py` has been derived by us from R’s library `babynames`, based on Census data in the US over the years. 
+  - `gender.py` and `gender_babynames.py`: Two files of first names and their most likely gender (we use first names to infer gender in some cases). `gender.py` has been taken from [this useful public repo](https://github.com/Bemmu/gender-from-name), and `gender_babynames.py` has been derived by us from R’s library `babynames`, based on Census data in the US over the years. 
   - `analysis.py`: Contains a utility wrapper function called `get_article_info`, which allows the user to pass a piece of text and run the whole GenderMeme pipeline on it, and get a JSON output.
 
 ## How to run this code:
