@@ -73,7 +73,7 @@ def get_article_info(article_text, ann=None, verbose=False):
             'gender_method': method_name_map[_dict.get('gender_method')],
             'name': _dict.get('name'),
             'quotes': _dict.get('quotes'),
-            'is_speaker': transform_source(_dict.get('is_speaker')),
+            'is_speaker': transform_source(_dict.get('is_source')),
             'mentions': transform_mentions(_dict.get('mentions'))
         }
         json_dict[_id] = new_dict
