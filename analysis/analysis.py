@@ -66,11 +66,17 @@ def get_article_info(article_text, ann=None, verbose=False):
     json_dict = {}
 
     for _id, _dict in id_to_info.iteritems():
+        gender_method = _dict.get('gender_method')
+        # If gender_method is in the map, we translate it to its
+        # pretty form; else, we just pass it through.
+        if gender_method in method_name_map:
+            gender_method = method_name_map[gender_method]
+
         new_dict = {
             'associated_verbs': list(_dict.get('associated_verbs', [])),
             'num_times_mentioned': _dict.get('count', 0),
             'gender': _dict.get('gender'),
-            'gender_method': method_name_map[_dict.get('gender_method')],
+            'gender_method': gender_method,
             'name': _dict.get('name'),
             'quotes': _dict.get('quotes'),
             'is_speaker': transform_source(_dict.get('is_source')),
