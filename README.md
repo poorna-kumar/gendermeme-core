@@ -44,7 +44,7 @@ This repo contains two folders:
   ‘associated_verbs’: list
   }
   ```
-  The overall output is a JSON object with each individual's id as a key, and the object above as the value.
+  The overall output is a list of such objects
  
  ### Example Usage
  
@@ -57,7 +57,7 @@ This repo contains two folders:
  
  It will return a JSON object created from a Python dictionary which, on prettifying, looks like:
  ```
- {0: {'associated_verbs': [u'go'],
+[{'associated_verbs': [u'go'],
      'gender': 'FEMALE',
      'gender_method': 'COREF',
      'is_speaker': (False, {'Reasons': []}),
@@ -65,7 +65,7 @@ This repo contains two folders:
      'name': u'Ann Smith',
      'num_times_mentioned': 1,
      'quotes': []},
- 1: {'associated_verbs': [u'go', u'say'],
+ {'associated_verbs': [u'go', u'say'],
      'gender': 'MALE',
      'gender_method': 'COREF',
      'is_speaker': (True,
@@ -116,6 +116,6 @@ This repo contains two folders:
                  u'originalText': u',',
                  u'pos': u',',
                  u'speaker': u'7',
-                 u'word': u','}]}}
+                 u'word': u','}]}]
 
  ```
