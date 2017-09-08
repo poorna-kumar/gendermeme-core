@@ -63,9 +63,9 @@ def get_article_info(article_text, ann=None, verbose=False):
         'name_only': 'NAME_ONLY'
     }
 
-    json_dict = {}
+    json_list = []
 
-    for _id, _dict in id_to_info.iteritems():
+    for _id, _dict in sorted(id_to_info.iteritems()):
         gender_method = _dict.get('gender_method')
         # If gender_method is in the map, we translate it to its
         # pretty form; else, we just pass it through.
@@ -82,6 +82,7 @@ def get_article_info(article_text, ann=None, verbose=False):
             'is_speaker': transform_source(_dict.get('is_source')),
             'mentions': transform_mentions(_dict.get('mentions'))
         }
-        json_dict[_id] = new_dict
+        assert _id == len(json_list)
+        json_list.append(new_dict)
 
-    return json.dumps(json_dict)
+    return json.dumps(json_list)
