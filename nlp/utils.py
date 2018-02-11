@@ -1,7 +1,7 @@
 from pycorenlp import StanfordCoreNLP
+import os
 
-
-def annotate_corenlp(text, annotators=['pos'], output_format='json', port=9000):
+def annotate_corenlp(text, annotators=['pos'], output_format='json', hostname='localhost', port=9000):
     """
     Helper function to get the CoreNLP output.
     Usage:
@@ -28,7 +28,10 @@ def annotate_corenlp(text, annotators=['pos'], output_format='json', port=9000):
     # To replace double quotes with single quotes
     text = text.replace("''", '"')
 
-    nlp = StanfordCoreNLP('http://localhost:{}'.format(port))
+    nlp = StanfordCoreNLP('http://{}:{}'.format(
+        os.getenv('CORENLP_HOSTNAME', hostname),
+        os.getenv('CORENLP_PORT', port)))
+
     return nlp.annotate(text, properties={
         'annotators': ','.join(annotators),
         'outputFormat': output_format
