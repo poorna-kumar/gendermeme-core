@@ -13,7 +13,7 @@ from nlp import utils as nlp_utils
 from utils import get_people_mentioned
 
 
-def get_article_info(article_text, ann=None, verbose=False, stringify_json=True, hostname=None, port=None):
+def get_article_info(article_text, ann=None, verbose=False, hostname=None, port=None):
     """
     Given a piece of text, runs it through our entire pipeline.
 
@@ -91,7 +91,4 @@ def get_article_info(article_text, ann=None, verbose=False, stringify_json=True,
         assert _id == len(json_list)
         json_list.append(new_dict)
 
-    if stringify_json:
-        return json.dumps(json_list)
-
-    return json_list
+    return json.dumps(json_list)

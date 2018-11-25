@@ -1,5 +1,5 @@
 from collections import namedtuple
-from pprint import pprint
+import json
 import unittest
 
 from analysis import get_article_info
@@ -28,7 +28,7 @@ class TestGetArticleInfo(unittest.TestCase):
 
     def test_with_simple_input(self):
         text = 'Ann Smith and her husband Jim went to the movies. "It was okay," he said.'
-        output = get_article_info(text, hostname='gendermeme.org', port=9000, stringify_json=False)
+        output = json.loads(get_article_info(text, hostname='gendermeme.org', port=9000))
 
         # There should be two people.
         self.assertEqual(len(output), 2)
