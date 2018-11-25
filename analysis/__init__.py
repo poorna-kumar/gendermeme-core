@@ -20,17 +20,17 @@ def get_article_info(article_text, ann=None, verbose=False, hostname=None, port=
     Can optionally pass it the CoreNLP annotation if it was precomputed.
     """
     if ann is None:
-        kwargs = {}
-        if hostname:
-            kwargs['hostname'] = hostname
-        if port:
-            kwargs['port'] = port
+        # If hostname and/or port are not passed, then we check the environment for it. Else, default to localhost:9000
+        if hostname is None:
+            hostname = os.getenv("CORENLP_HOSTNAME", "localhost")
+        if port is None:
+            port = os.getenv("CORENLP_PORT", 9000)
+
         ann = nlp_utils.annotate_corenlp(
-                article_text,
+                article_text, hostname, port,
                 annotators=['pos', 'lemma', 'ner', 'parse',
                             'depparse', 'dcoref', 'quote',
-                            'openie'],
-                **kwargs)
+                            'openie'])
 
     sentences, corefs = ann['sentences'], ann['corefs']
     if verbose:

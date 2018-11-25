@@ -1,8 +1,7 @@
 from pycorenlp import StanfordCoreNLP
-import os
 
 
-def annotate_corenlp(text, annotators=['pos'], output_format='json', hostname='localhost', port=9000):
+def annotate_corenlp(text, hostname, port, annotators=['pos'], output_format='json'):
     """
     Helper function to get the CoreNLP output.
     Usage:
@@ -11,6 +10,8 @@ def annotate_corenlp(text, annotators=['pos'], output_format='json', hostname='l
     at http://stanfordnlp.github.io/CoreNLP/corenlp-server.html
     Arguments:
         text: the string with the text that you want to annotate.
+        hostname: the hostname where the CoreNLP server lives.
+        port: the port of the CoreNLP server.
         annotators: a list of CoreNLP annotators that you want it to run.
         (The table with all the annotators can be found at
         http://stanfordnlp.github.io/CoreNLP/annotators.html. You just need to
@@ -29,9 +30,7 @@ def annotate_corenlp(text, annotators=['pos'], output_format='json', hostname='l
     # To replace double quotes with single quotes
     text = text.replace("''", '"')
 
-    nlp = StanfordCoreNLP('http://{}:{}'.format(
-        os.getenv('CORENLP_HOSTNAME', hostname),
-        os.getenv('CORENLP_PORT', port)))
+    nlp = StanfordCoreNLP('http://{}:{}'.format(hostname, port))
 
     return nlp.annotate(text, properties={
         'annotators': ','.join(annotators),
