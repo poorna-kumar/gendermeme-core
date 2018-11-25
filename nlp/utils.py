@@ -1,6 +1,7 @@
 from pycorenlp import StanfordCoreNLP
 import os
 
+
 def annotate_corenlp(text, annotators=['pos'], output_format='json', hostname='localhost', port=9000):
     """
     Helper function to get the CoreNLP output.
