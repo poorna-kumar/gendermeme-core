@@ -1,7 +1,6 @@
 from collections import defaultdict, Counter
 from gender_babynames import gender
 from gender import gender_special
-from pprint import pprint
 import numpy as np
 import string
 
@@ -350,8 +349,6 @@ def detect_relationships(mentions_dictionary, key_to_detect, sentences,
                     # Since prev_token_idx is 0-based
                     elif gov_idx == prev_token_idx + 1:
                         possessor_idxs.append(dep['dependent'])
-
-            # print key_to_detect, possessor_idxs
 
             if len(possessor_idxs) > 1:
                 print 'TWO POSSESSORS OF THIS PERSON!'
