@@ -13,18 +13,24 @@ from nlp import utils as nlp_utils
 from utils import get_people_mentioned
 
 
-def get_article_info(article_text, ann=None, verbose=False):
+def get_article_info(article_text, ann=None, verbose=False, stringify_json=True, hostname=None, port=None):
     """
     Given a piece of text, runs it through our entire pipeline.
 
     Can optionally pass it the CoreNLP annotation if it was precomputed.
     """
     if ann is None:
+        kwargs = {}
+        if hostname:
+            kwargs['hostname'] = hostname
+        if port:
+            kwargs['port'] = port
         ann = nlp_utils.annotate_corenlp(
                 article_text,
                 annotators=['pos', 'lemma', 'ner', 'parse',
                             'depparse', 'dcoref', 'quote',
-                            'openie'])
+                            'openie'],
+                **kwargs)
 
     sentences, corefs = ann['sentences'], ann['corefs']
     if verbose:
@@ -85,4 +91,7 @@ def get_article_info(article_text, ann=None, verbose=False):
         assert _id == len(json_list)
         json_list.append(new_dict)
 
-    return json.dumps(json_list)
+    if stringify_json:
+        return json.dumps(json_list)
+
+    return json_list
