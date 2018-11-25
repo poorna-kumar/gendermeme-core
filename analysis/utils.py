@@ -467,9 +467,6 @@ def which_people_are_companies(people, sentences, corefs):
 
 
 def get_people_mentioned(sentences, corefs):
-    """
-
-    """
     mentions_dictionary = {}
     # We've assumed that all sentences end with full stops.
     # If this assumption breaks, we might be in trouble: notice that we flush
@@ -526,34 +523,10 @@ def get_people_mentioned(sentences, corefs):
     mark_companies_as_non_living(sentences, corefs, mentions_dictionary,
                                  mention_key_to_id, id_to_info)
 
-
-    '''
-    print 'MENTIONS DICTIONARY:'
-    pprint(mentions_dictionary)
-    pprint(sentences[0]['tokens'])
-    print 'COREFS'
-    pprint(corefs)
-    print 'Mention key to id'
-    pprint(mention_key_to_id)
-    print 'Id to info'
-    pprint(id_to_info)
-    pprint(sentences[0])
-    print 'DISJOINT SET OF MENTIONS:'
-    pprint(disjoint_sets_of_mentions)
-    print 'ID TO INFO:'
-    pprint(id_to_info)
-    print 'SENTENCES'
-    pprint([s['tokens'] for s in sentences])
-    pprint(id_to_info)
-    '''
     return id_to_info
 
 
 def add_corefs_info(mentions_dictionary, corefs):
-
-    # COREFERENCE-BASED GENDER EXTRACTION
-    # print "COREFERENCE CHAINS"
-    # pprint(corefs)
     for coref_chain_id, coref_chain in corefs.iteritems():
         mentions_pos = []
         male_pronoun_count = 0
